@@ -15,7 +15,7 @@ Order by 1,2
 
 
 -- Looking at the Total Cases vs Total Deaths
--- Shows the likelihood of dieing if you contract covid in your country
+-- Shows the likelihood of dying if you contract covid in your country
 
 Select location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 as DeathsPercentage
 From PortfolioProject..CovidDeaths
@@ -23,7 +23,7 @@ Where location like '%Nigeria%'
 Order by 1,2
 
 -- The Total Cases vs Population
--- Show what percentage of population got Covid
+-- Show what percentage of the population got Covid
 
 Select location, date, population, total_cases, (total_deaths/population)*100 as DeathsPercentage
 From PortfolioProject..CovidDeaths
@@ -32,7 +32,7 @@ where continent is not null
 Order by 1,2
 
 
--- Looking at countries with highest infection rate compared to population
+-- Looking at countries with the highest infection rate compared to the population
 
 Select location, population, MAX(total_cases) as HighestInfectionCount, MAX((total_cases/population))*100 as PercentPopulationInfected
 From PortfolioProject..CovidDeaths
@@ -50,7 +50,7 @@ where continent is not null
 Group by location
 Order by TotalDeathCount desc 
 
---LETS BREAK THINGS DOWN BY CONTINENT
+--LET'S BREAK THINGS DOWN BY CONTINENT
 --Use 'Group by' for Aggregate functions
 
 --Select location, MAX(cast(total_deaths as int)) as TotalDeathCount
